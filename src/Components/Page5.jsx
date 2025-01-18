@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import axios from "axios";
+import React, { useState } from "react";
+import logo from "../assets/maintenance.jpg";
 
 const DonateForm = () => {
   const [formData, setFormData] = useState({
@@ -12,16 +14,84 @@ const DonateForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const loadScript = (src) => {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = src;
+      script.onload = () => {
+        resolve(true);
+      };
+      script.onerror = () => {
+        resolve(false);
+      };
+      document.body.appendChild(script);
+    });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(`Thank you, ${formData.name}, for donating ₹${formData.amount}!`);
+    const payload = {
+      amount: e.target.amount.value * 100,
+      name: e.target.name.value,
+      email: e.target.email.value,
+    };
+    const res = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
+
+    // console.log(payload);
+
+    const result = await axios.post(
+      "http://localhost:3000/payment/orders",
+      payload
+    );
+    const { amount, id: order_id, currency } = result.data;
+
+    const options = {
+      key: "rzp_test_hW8CeOp0cGDiV0", // Enter the Key ID generated from the Dashboard
+      amount: amount.toString(),
+      currency: currency,
+      name: "Bauchraji Temple",
+      description: "Donation Test",
+      image: { logo },
+      order_id: order_id,
+      handler: async function (response) {
+        const data = {
+          orderCreationId: order_id,
+          razorpayPaymentId: response.razorpay_payment_id,
+          razorpayOrderId: response.razorpay_order_id,
+          razorpaySignature: response.razorpay_signature,
+        };
+
+        const result = await axios.post(
+          "http://localhost:3000/payment/success",
+          data
+        );
+
+        alert(result.data.msg);
+      },
+      prefill: {
+        name: payload.name,
+        email: payload.email,
+        contact: "9104904657",
+      },
+      notes: {
+        address: "Soumya Dey Corporate Office",
+      },
+      theme: {
+        color: "#61dafb",
+      },
+    };
+
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
+
+    // alert(`Thank you, ${formData.name}, for donating ₹${formData.amount}!`);
     // Handle form submission logic here
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[url('../public/bg1.webp')] bg-cover bg-center bg-no-repeat">
-      
-
       <form
         onSubmit={handleSubmit}
         className="relative w-full max-w-md p-6 bg-white bg-opacity-90 shadow-lg rounded-lg"
@@ -32,7 +102,10 @@ const DonateForm = () => {
 
         {/* Name Field */}
         <div className="mb-4">
-          <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+          <label
+            htmlFor="name"
+            className="block text-gray-700 font-medium mb-2"
+          >
             Name
           </label>
           <input
@@ -49,7 +122,10 @@ const DonateForm = () => {
 
         {/* Email Field */}
         <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+          <label
+            htmlFor="email"
+            className="block text-gray-700 font-medium mb-2"
+          >
             Email
           </label>
           <input
@@ -66,7 +142,10 @@ const DonateForm = () => {
 
         {/* Amount Field */}
         <div className="mb-4">
-          <label htmlFor="amount" className="block text-gray-700 font-medium mb-2">
+          <label
+            htmlFor="amount"
+            className="block text-gray-700 font-medium mb-2"
+          >
             Amount (₹)
           </label>
           <input
