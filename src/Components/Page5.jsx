@@ -42,7 +42,7 @@ const DonateForm = () => {
     // console.log(payload);
 
     const result = await axios.post(
-      "http://localhost:3000/payment/orders",
+      "https://bauchraji-temple.onrender.com/payment/orders",
       payload
     );
     const { amount, id: order_id, currency } = result.data;
@@ -64,7 +64,7 @@ const DonateForm = () => {
         };
 
         const result = await axios.post(
-          "http://localhost:3000/payment/success",
+          "https://bauchraji-temple.onrender.com/payment/success",
           data
         );
 
