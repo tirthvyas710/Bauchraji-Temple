@@ -3,7 +3,7 @@ import React from "react";
 const Page3 = () => {
   return (
     <>
-     <div className=" flex items-center justify-center h-screen bg-fixed bg-[url('../public\bg1.webp')] " >
+     <div className=" flex items-center justify-center h-screen bg-fixed bg-[url('../public/bg1.webp')] " >
 
        
 
