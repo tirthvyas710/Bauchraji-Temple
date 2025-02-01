@@ -7,7 +7,7 @@ const Page6 = () => {
 
 const ContactPage = () => {
   return (
-    <div className="h-screen bg-red-200 flex items-center justify-center">
+    <div id='Contact' className="h-screen bg-red-200 flex items-center justify-center">
       <div className="w-full h-[80vh] max-w-4xl p-6 bg-transparent/80 shadow-lg rounded-lg backdrop-blur-md">
         {/* Heading */}
         <h1 className="text-4xl font-bold text-white text-center md:mt-8 md:text-5xl md:mb-7">

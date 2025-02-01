@@ -2,8 +2,12 @@ import React from "react";
 
 const Page3 = () => {
   return (
-    <>
-     <div className=" flex items-center justify-center h-screen bg-fixed bg-[url('../public\bg1.webp')] " >
+    <div id="pg3">
+      
+      <meta name="description" content="Discover Bahuchraji Temple, a sacred space for devotion and community. Experience tranquility and warmth in our spiritual sanctuary." />
+      <meta name="keywords" content="Bahuchraji Temple, spiritual community, devotion, tranquility, faith" />
+
+     <div className=" flex items-center justify-center h-screen bg-fixed bg-[url('../public/bg1.webp')] " >
 
        
 
@@ -33,7 +37,7 @@ const Page3 = () => {
 
       
        
-    </>
+    </div>
   );
 };
 

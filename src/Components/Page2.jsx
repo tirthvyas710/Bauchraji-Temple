@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -21,9 +22,8 @@ const Page2 = () => {
         stagger: 0.3, // Animates each section with a delay
         scrollTrigger: {
           trigger: element,
-          start: 'top 40%', // When 80% of the section is visible
-          end: 'bottom 20%', // Until 20% of the section is still visible
-          
+          start: 'top 40%', 
+          end: 'bottom 20%', 
         },
       }
     );
@@ -34,7 +34,13 @@ const Page2 = () => {
       id="pg2"
       ref={sectionRef}
       className="h-full w-full bg-red-100 py-6"
+      // Add meta data attributes
+      data-component-name="Page2"
+      data-description="This component displays spiritual services offered by the temple, including Puja services, community events, and spiritual guidance."
+      data-author="Bahuchraji Temple "
+      
     >
+
       <div className="h-[30vh] w-full lg:h-[10vh]">
         <h1 className="text-2xl text-center text-orange-600 pt-2 font-semibold md:text-5xl">
           Spiritual services we offer
@@ -44,30 +50,30 @@ const Page2 = () => {
         </p>
       </div>
 
-      <div className="lg:flex justify-center items-start md:p-10 lg:p-24">
-        <div className="text-red-600 p-3 lg:w-[33.33333%]">
-          <h1 className="text-4xl font-bold text-orange-600">
-            Puja <br /> Services
+      <div className="lg:flex justify-center items-start  md:p-10 lg:p-24">
+        <div className="text-red-600 p-3 lg:w-[33.33333%] flex justify-center items-center flex-col md:flex md:justify-start md:items-start">
+          <h1 className="font-bold text-orange-600 text-3xl md:text-4xl">
+            Puja Services
           </h1>
-          <p className="pt-6 text-indigo-950 font-semibold">
+          <p className="pt-6 text-indigo-950 font-semibold  text-center md:text-left">
             Our Puja services are designed to help you connect with the divine through personalized rituals. Whether for a family occasion or a community event, our experienced priests guide you in performing sacred ceremonies that honor tradition and spirituality.
           </p>
         </div>
 
-        <div className="text-red-600 p-3 lg:w-[33.33333%]">
-          <h1 className="text-4xl font-bold text-orange-600">
-            Community <br /> Events
+        <div className="text-red-600 p-3 lg:w-[33.33333%] flex justify-center items-center flex-col md:flex md:justify-start md:items-start">
+          <h1 className="font-bold text-orange-600 text-3xl md:text-4xl">
+            Community Events
           </h1>
-          <p className="pt-6 text-indigo-950 font-semibold">
+          <p className="pt-6 text-indigo-950 font-semibold text-center md:text-left">
             Join us for our community events, where we celebrate our faith and culture together. These gatherings foster a sense of belonging and provide opportunities for spiritual growth, sharing joy, and building lasting connections with fellow devotees.
           </p>
         </div>
 
-        <div className="text-red-600 p-3 lg:w-[33.33333%]">
-          <h1 className="text-4xl font-bold text-orange-600">
-            Spiritual <br /> Guidance
+        <div className="text-red-600 p-3 lg:w-[33.33333%] flex justify-center items-center flex-col md:flex md:justify-start md:items-start">
+          <h1 className="font-bold text-orange-600 text-3xl md:text-4xl ">
+            Spiritual  Guidance
           </h1>
-          <p className="pt-6 text-indigo-950 font-semibold">
+          <p className="pt-6 text-indigo-950 font-semibold text-center md:text-left">
             Seek wisdom and clarity through our Spiritual Guidance sessions. Our knowledgeable mentors are here to support your spiritual journey, offering insights and teachings that resonate with your heart and mind.
           </p>
         </div>
@@ -77,3 +83,4 @@ const Page2 = () => {
 };
 
 export default Page2;
+

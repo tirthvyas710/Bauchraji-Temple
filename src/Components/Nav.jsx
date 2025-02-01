@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Banner from './Banner';
 import Page2 from './Page2';
+import Page6 from './Page6';
 
 
 const Nav = () => {
@@ -9,7 +10,7 @@ const Nav = () => {
 
   const navLinks = [
     { href: "#About", label: "About" },
-    { href: "#contact", label: "Contact" },
+    { href: "#Contact", label: "Contact" },
     { href: "#Banner", label: "Services" },
   ];
 
