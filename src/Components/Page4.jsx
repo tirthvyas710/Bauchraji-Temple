@@ -73,7 +73,7 @@ const Page4 = () => {
       </div>
 
       {/* Navigation Section */}
-      <div className="h-[50%] w-full bg-red-100 flex justify-between items-center text-white p-4">
+      <div className="h-[60vh] w-full bg-red-100 flex justify-between items-center text-white p-4">
         <button
           onClick={prevSlide}
           className="p-3 bg-gray-900 rounded-full hover:bg-gray-500"
