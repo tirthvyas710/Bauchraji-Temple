@@ -30,12 +30,13 @@ const Page1 = () => {
           <h1 className='text-xl font-bold md:text-3xl lg:text-6xl'>Welcome to Bahuchraji Temple</h1>
         </div>
 
+        
         <div className='h-[80%] w-full p-10 text-center flex justify-center items-center flex-col bg-red-100 md:w-[40%] md:h-full'>
-          <p className='font-semibold'>ॐ सर्वमङ्गलमाङ्गल्ये शिवे सर्वार्थसाधिके। <br />
+          <p className='font-semibold text-sm  lg:text-xl '>ॐ सर्वमङ्गलमाङ्गल्ये शिवे सर्वार्थसाधिके। <br />
           शरण्ये त्र्यम्बके गौरी नारायणि नमोऽस्तुते॥</p>
           <br />
-          <p>Welcome to the sacred land of Maa Bahuchraji and Lord Shiva, where divine energies flow and faith finds its true essence. As you step into these holy temples, let the blessings of Maa Bahuchraji and Mahadev fill your soul with peace, strength, and devotion.</p> <br />
-          <p className='font-semibold'>ॐ नमः शिवाय। जय माताजी।</p>
+          <p className='text-sm  lg:text-xl'>Welcome to the sacred land of Maa Bahuchraji and Lord Shiva, where divine energies flow and faith finds its true essence. As you step into these holy temples, let the blessings of Maa Bahuchraji and Mahadev fill your soul with peace, strength, and devotion.</p> <br />
+          <p className='font-semibold text-sm  lg:text-xl'>ॐ नमः शिवाय। जय माताजी।</p>
         </div>
       </div>
       <div className='h-[70vh] w-full bg-red-400 flex flex-col md:flex-row'>
