@@ -6,7 +6,7 @@ const Greetings = ({ onEnterSite, show }) => {
     <AnimatePresence>
       {show && (
         <motion.div
-          className="flex items-center justify-center flex-col h-screen bg-fixed bg-no-repeat bg-center bg-cover bg-[url('../public/bgfor1.jpg')]"
+          className="flex items-center justify-center flex-col h-screen bg-fixed bg-no-repeat bg-center bg-cover bg-[url('/public/bgfor1.jpg')]"
           initial={{ opacity: 1, scale: 1 }} // Initial state
           exit={{ opacity: 0, scale: 0.9 }} // Exit animation
           transition={{ duration: 0.7, ease: 'easeInOut' }} // Smooth transition
